@@ -119,7 +119,7 @@ dfb = export_data.index.values[-1] - export_data.index.values[0]
 days_for_bill = dfb.astype('timedelta64[D]') / np.timedelta64(1, 'D')
 # ####################################################################
 
-client = InfluxDBClient('35.166.113.128', 8086, 'root', 'root', 'ascco_world')
+client = InfluxDBClient('ip', port, 'user', 'pass', 'ascco_world')
 row = client.query("SELECT * FROM energy_consumption WHERE time >= '2017-05-03' AND time < '2017-05-31'")
 pv_data = pd.DataFrame.from_dict(list(row)[0]).drop(['ac_time', 'host', 'region'], axis=1)
 pv_data['time'] = pd.to_datetime(pv_data.time) + pd.DateOffset(hours=8)
