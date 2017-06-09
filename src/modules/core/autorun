@@ -1,0 +1,3 @@
+#!/bin/sh -e
+ROOT=/home/admin/ascco/src/modules/core
+python $ROOT/DbHelper2.py $ROOT
